@@ -3,9 +3,7 @@ import tkinter
 from newgame import new_game
 from Tileset import set_tile
 
-
 def twoPlayer():
-
         global label2, window2
         window2 = tkinter.Tk()
         window2.title("TickTackToe")
