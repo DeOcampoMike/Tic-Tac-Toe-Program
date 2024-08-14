@@ -18,14 +18,5 @@ turn = 0
 game_over = False           
 
 
-# window = tkinter.Tk()
-# window2 = tkinter.Tk()
-# frame = tkinter.Frame(window)
-# frame2 = tkinter.Frame(window2)
-# label = tkinter.Label(frame,text = "turn",font=("Consolas",20,"bold"),
-#                                                  background=color_gray,foreground="white",width=4,height= 1)
-# label2 = tkinter.Label(frame2,text = "turn",font=("Consolas",20,"bold"),
-#                                                  background=color_gray,foreground="white",width=4,height= 1)
-
 
 
