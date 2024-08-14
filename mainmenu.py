@@ -27,7 +27,6 @@ def mainMenu():
     window.mainloop()
 
 
-
 def closetoTwo():
     window.destroy()
     from twoplayer import twoPlayer
