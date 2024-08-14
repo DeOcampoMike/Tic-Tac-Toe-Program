@@ -6,7 +6,6 @@ color_gray = "#343434"
 color_yellow = "#FFFF00"
 color_ligthgray = "#D3D3D3"
 
-
 player1 = "X"
 player2 = "O"
 currplayer = player1
