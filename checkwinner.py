@@ -1,7 +1,6 @@
 from twoplayer import *
 import twoplayer
 
-
 def check_winner(board, label2):
     global turn, game_over
     turn += 1
