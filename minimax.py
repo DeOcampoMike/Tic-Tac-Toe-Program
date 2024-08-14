@@ -5,3 +5,4 @@ def minimax(minimax_board, depth, is_maximizing):
         return float('inf')
     elif is_board_full(minimax_board)
     
+    
