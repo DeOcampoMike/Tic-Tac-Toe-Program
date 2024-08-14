@@ -4,7 +4,6 @@ from variable import *
 import Tileset
 
 def new_game():
-        
         global turn, game_over
         turn = 0
         checkwinner.game_over = False
