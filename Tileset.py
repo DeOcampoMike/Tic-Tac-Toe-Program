@@ -1,5 +1,4 @@
 import checkwinner
-# from variable import *
 from checkwinner import *
 from twoplayer import *
 import twoplayer
