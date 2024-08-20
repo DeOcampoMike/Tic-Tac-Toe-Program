@@ -1,13 +1,14 @@
-import checkwinner
-from checkwinner import *
-import twoplayer
+
+from checkwinner import check_winner
 from minimax import best_move
 from variable import *
 
+
 def set_tile(row, column):
     import variable
+    import board
+    import checkwinner
     global currplayer, game_over  # Declare both as global
-    print("2")
 
     if variable.gamemode == 0:  # Two-player mode
         if game_over:
@@ -16,36 +17,39 @@ def set_tile(row, column):
         elif board[row][column]["text"] == "" and not checkwinner.game_over:
                 board[row][column]["text"] = currplayer
 
-            # Check for a winner after the move
                 if currplayer == player2:
                         currplayer = player1
                 else:
                         currplayer = player2
 
-                twoplayer.label2["text"] = currplayer+"'s turn"
-                check_winner(board, twoplayer.label2)
+                board.label2["text"] = currplayer+"'s turn"
+                check_winner(board, board.label2)
+            
 
                 return
 
         else:
                return
 
-    else:  # Single-player mode
+    else: 
+    
         if game_over:
             return
 
-        if board[row][column]["text"] == "" and currplayer == "X":
+        if board[row][column]["text"] == "" and (currplayer == "X" or currplayer == "O") and not checkwinner.game_over:
+            if currplayer == "O":
+                 currplayer = "X"
             board[row][column]["text"] = currplayer
-            twoplayer.label2["text"] = f"{currplayer}'s turn"
-
-            # Check for a winner after the player's move
-            check_winner(board, twoplayer.label2)
+            check_winner(board, board.label2)
             currplayer = "O"
             move = best_move()
-            print(f"Best move determined by AI: {move}")  # Debugging output
-            if move:
+            if move and not checkwinner.game_over:
                 board[move[0]][move[1]]["text"] = currplayer
-                check_winner(board, twoplayer.label2)
+                board.label2["text"] = "1 Player"
+                check_winner(board, board.label2)
                 currplayer = "X"
-                twoplayer.label2["text"] = f"{currplayer}'s turn"
+
+
+
+                
         return
