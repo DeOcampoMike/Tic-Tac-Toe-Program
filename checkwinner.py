@@ -1,20 +1,19 @@
-from twoplayer import *
-import twoplayer
+from board import *
+
 
 def check_winner(board, label2):
     global turn, game_over
-    turn += 1
-    print(turn)
+    import variable
+    variable.turn += 1
 
     for row in range(3):
         if (board[row][0]["text"] == board[row][1]["text"] == board[row][2]["text"]
             and board[row][0]["text"] !=  ""):
             label2.config(text=board[row][0]["text"] + " is the winner!",foreground = color_yellow)
             for column in range(3):
-                board[row][column].config(foreground=color_yellow,background=color_ligthgray)
+                board[row][column].config(foreground=color_yellow,background=color_lightgray)
             game_over = True
-            print(game_over)
-            turn = 0
+            variable.turn = 0
             
             return
 
@@ -23,9 +22,9 @@ def check_winner(board, label2):
             and board[0][column]["text"] !=  ""):
             label2.config(text=board[0][column]["text"] + " is the winner!",foreground = color_yellow)
             for row in range(3):
-                board[row][column].config(foreground=color_yellow,background=color_ligthgray)
+                board[row][column].config(foreground=color_yellow,background=color_lightgray)
             game_over = True
-            turn = 0
+            variable.turn = 0
             return
 
         
@@ -33,24 +32,24 @@ def check_winner(board, label2):
                 and board[0][0]["text"] != ""):
                 label2.config(text=board[0][0]["text"]+" is the winner!", foreground=color_yellow)
                 for i in range(3):
-                        board[i][i].config(foreground=color_yellow, background=color_ligthgray)
+                        board[i][i].config(foreground=color_yellow, background=color_lightgray)
                 game_over = True
-                turn = 0
+                variable.turn = 0
                 return
 
 
         if (board[0][2]["text"] == board[1][1]["text"] == board[2][0]["text"]
                 and board[0][2]["text"] != ""):
                 label2.config(text=board[0][2]["text"]+" is the winner!", foreground=color_yellow)
-                board[0][2].config(foreground=color_yellow, background=color_ligthgray)
-                board[1][1].config(foreground=color_yellow, background=color_ligthgray)
-                board[2][0].config(foreground=color_yellow, background=color_ligthgray)
+                board[0][2].config(foreground=color_yellow, background=color_lightgray)
+                board[1][1].config(foreground=color_yellow, background=color_lightgray)
+                board[2][0].config(foreground=color_yellow, background=color_lightgray)
                 game_over = True
-                turn = 0
+                variable.turn = 0
                 return
         
-        if (turn == 9):
+        if (variable.turn == 9):
             game_over = True
-            turn = 0
-            twoplayer.label2.config(text="Tie!", foreground=color_yellow)
+            variable.turn = 0
+            board.label2.config(text="Tie!", foreground=color_yellow)
             return

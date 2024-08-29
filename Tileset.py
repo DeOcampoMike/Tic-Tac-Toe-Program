@@ -6,9 +6,9 @@ from variable import *
 
 def set_tile(row, column):
     import variable
-    import board
+    import boards
     import checkwinner
-    global currplayer, game_over  # Declare both as global
+    global currplayer, game_over  
 
     if variable.gamemode == 0:  # Two-player mode
         if game_over:
@@ -22,8 +22,8 @@ def set_tile(row, column):
                 else:
                         currplayer = player2
 
-                board.label2["text"] = currplayer+"'s turn"
-                check_winner(board, board.label2)
+                boards.label2["text"] = currplayer+"'s turn"
+                check_winner(board, boards.label2)
             
 
                 return
@@ -31,22 +31,22 @@ def set_tile(row, column):
         else:
                return
 
-    else: 
+    else:   #One Player
     
         if game_over:
             return
 
-        if board[row][column]["text"] == "" and (currplayer == "X" or currplayer == "O") and not checkwinner.game_over:
+        if board[row][column]["text"] == "" and (currplayer == variable.player1 or currplayer == variable.player2) and not checkwinner.game_over:
             if currplayer == "O":
                  currplayer = "X"
             board[row][column]["text"] = currplayer
-            check_winner(board, board.label2)
+            check_winner(board, boards.label2)
             currplayer = "O"
             move = best_move()
             if move and not checkwinner.game_over:
                 board[move[0]][move[1]]["text"] = currplayer
-                board.label2["text"] = "1 Player"
-                check_winner(board, board.label2)
+                boards.label2["text"] = "Player vs AI"
+                check_winner(board, boards.label2)
                 currplayer = "X"
 
 

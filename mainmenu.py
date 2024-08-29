@@ -1,4 +1,4 @@
-from twoplayer import *
+from board import *
 
 def mainMenu():
 
@@ -9,7 +9,7 @@ def mainMenu():
     window.configure(background=color_gray)
     window.resizable(False,False)
     window.update()
-    button1 = tkinter.Button(window,text="One Player",font=("Arial,18"),fg="white",width=20,background=color_gray)
+    button1 = tkinter.Button(window,text="One Player",font=("Arial,18"),fg="white",width=20,background=color_gray,command=closetoOne)
     button1.pack(padx=10,pady=20)
     button2 = tkinter.Button(window,text="Two Player",font=("Arial,18"),fg="white",width=20,background=color_gray,command=closetoTwo)
     button2.pack(padx=10,pady=20)
@@ -28,9 +28,25 @@ def mainMenu():
 
 
 def closetoTwo():
+    import variable
+    import checkwinner
+    variable.gamemode = 0          
+    variable.turn = 0
     window.destroy()
-    from twoplayer import twoPlayer
-    twoPlayer()
+    checkwinner.game_over = False
+    from board import TicBoard
+    TicBoard()
+
+
+def closetoOne():
+    import variable
+    import checkwinner    
+    variable.gamemode = 1      
+    variable.turn = 0
+    window.destroy()
+    checkwinner.game_over = False
+    from board import TicBoard
+    TicBoard()
 
 mainMenu()
 
