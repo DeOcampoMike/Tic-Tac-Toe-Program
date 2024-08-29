@@ -1,14 +1,13 @@
 from checkwinner import check_winner
 from variable import *
+import variable
+import Tileset
 
 def minimax(minimaxboard, depth, is_maximizing):
-    import variable
-    import Tileset
 
     if Tileset.currplayer == "O":
         return float('inf')
         
-
     elif Tileset.currplayer == "X":
         return float('-inf')
     
@@ -39,7 +38,6 @@ def minimax(minimaxboard, depth, is_maximizing):
     
 
 def best_move():
-    import Tileset
     best_score = -1000
     best_move = (-1, -1)  
     for row in range(3):

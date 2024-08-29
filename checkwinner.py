@@ -1,9 +1,10 @@
-from board import *
-
+from boards import *
+import variable
+import boards
 
 def check_winner(board, label2):
     global turn, game_over
-    import variable
+
     variable.turn += 1
 
     for row in range(3):
@@ -51,5 +52,5 @@ def check_winner(board, label2):
         if (variable.turn == 9):
             game_over = True
             variable.turn = 0
-            board.label2.config(text="Tie!", foreground=color_yellow)
+            boards.label2.config(text="Tie!", foreground=color_yellow)
             return

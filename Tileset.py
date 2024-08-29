@@ -2,12 +2,12 @@
 from checkwinner import check_winner
 from minimax import best_move
 from variable import *
-
+import variable
+import boards
+import checkwinner
 
 def set_tile(row, column):
-    import variable
-    import boards
-    import checkwinner
+
     global currplayer, game_over  
 
     if variable.gamemode == 0:  # Two-player mode

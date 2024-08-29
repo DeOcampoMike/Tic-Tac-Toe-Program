@@ -1,4 +1,7 @@
-from board import *
+from boards import *
+import variable
+import checkwinner
+from boards import TicBoard
 
 def mainMenu():
 
@@ -13,12 +16,10 @@ def mainMenu():
     button1.pack(padx=10,pady=20)
     button2 = tkinter.Button(window,text="Two Player",font=("Arial,18"),fg="white",width=20,background=color_gray,command=closetoTwo)
     button2.pack(padx=10,pady=20)
-    button3 = tkinter.Button(window,text="Setting",font=("Arial,18"),fg="white",width=20,background=color_gray)
-    button3.pack(padx=10,pady=20)
 
     window.update_idletasks()
-    width = 500
-    height = 500
+    width = 250
+    height = 250
     screen_width = window.winfo_screenwidth()
     screen_height = window.winfo_screenheight()
     x = (screen_width - width) // 2
@@ -28,25 +29,19 @@ def mainMenu():
 
 
 def closetoTwo():
-    import variable
-    import checkwinner
     variable.gamemode = 0          
     variable.turn = 0
     window.destroy()
     checkwinner.game_over = False
-    from board import TicBoard
     TicBoard()
 
 
-def closetoOne():
-    import variable
-    import checkwinner    
+def closetoOne():   
     variable.gamemode = 1      
     variable.turn = 0
     window.destroy()
     checkwinner.game_over = False
-    from board import TicBoard
     TicBoard()
 
-mainMenu()
+
 
